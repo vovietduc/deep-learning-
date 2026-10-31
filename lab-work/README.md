@@ -4,12 +4,6 @@
 
 > **Chủ đề:** Tìm hiểu bài toán phát hiện đối tượng (Object Detection), nền tảng CNN và minh họa suy luận bằng mô hình YOLOv8n đã được huấn luyện sẵn.
 
-**Repository:** [vovietduc/deep-learning-](https://github.com/vovietduc/deep-learning-)  
-**Tác giả / tài khoản GitHub:** [vovietduc](https://github.com/vovietduc)  
-**Môn học:** Deep Learning  
-**Ngày biên soạn:** 31/10/2026  
-**Đối tượng đọc:** Giảng viên, sinh viên và người muốn chạy lại demo.
-
 ---
 
 ## 📑 Mục lục
@@ -299,13 +293,11 @@ Không báo cáo **accuracy, FPS, mAP hoặc số đối tượng phát hiện**
 2. [Ultralytics YOLOv8 Models](https://docs.ultralytics.com/models/yolov8/)
 3. [OpenCV Documentation](https://docs.opencv.org/)
 4. [PyTorch Documentation](https://pytorch.org/docs/stable/index.html)
-5. Tài liệu học phần Deep Learning do giảng viên cung cấp (bổ sung tên tài liệu khi trích dẫn cụ thể).
+5. Tài liệu học phần Deep Learning.
 
-## 📬 Liên hệ
 
 **GitHub:** [@vovietduc](https://github.com/vovietduc)  
 **Repository:** [deep-learning-](https://github.com/vovietduc/deep-learning-)
 
 ---
 
-*README phục vụ mục đích học tập và trình bày. Hãy cập nhật đường dẫn slide, kết quả demo và thông tin nhóm trước khi nộp bài.*
