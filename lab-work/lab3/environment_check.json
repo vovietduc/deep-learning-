@@ -1,0 +1,16 @@
+{
+  "python": "3.14.6 (main, Jun 23 2026, 15:20:04) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Mi Wang\\Downloads\\Practice3_Python3146\\Practice3_Python3146\\.venv314\\Scripts\\python.exe",
+  "packages": {
+    "numpy": "2.5.4",
+    "torch": "2.14.1",
+    "transformers": "5.21.0",
+    "datasets": "5.1.0",
+    "evaluate": "0.4.6",
+    "accelerate": "1.15.0",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "ipykernel": "7.4.0"
+  },
+  "cuda": false
+}
