@@ -74,12 +74,26 @@ CNN là nhóm mạng nơ-ron phù hợp với dữ liệu dạng lưới như h�
 **YOLO (You Only Look Once)** thuộc nhóm phương pháp phát hiện đối tượng một giai đoạn (one-stage detector). YOLOv8 kết hợp trích xuất đặc trưng, hợp nhất đặc trưng nhiều tỉ lệ và đầu dự đoán đối tượng. `YOLOv8n` là biến thể nhỏ (nano), phù hợp để demo trên máy cá nhân.
 
 ```mermaid
-flowchart TD
-    A[Ảnh đầu vào] --> B[Backbone: trích xuất đặc trưng]
-    B --> C[Neck: hợp nhất đặc trưng đa tỉ lệ]
-    C --> D[Detection Head: dự đoán lớp và hộp]
-    D --> E[Hậu xử lý: lọc dự đoán / NMS]
-    E --> F[Bounding boxes + Labels + Confidence]
+flowchart LR
+    A[Ảnh đầu vào] --> B[Backbone]
+    subgraph BB[Trích xuất đặc trưng]
+      direction TB
+      B --> B1[Đặc trưng mức thấp: cạnh và texture]
+      B --> B2[Đặc trưng mức cao: hình dạng và ngữ cảnh]
+    end
+    B1 --> N[Neck: hợp nhất đa tỉ lệ]
+    B2 --> N
+    N --> S1[Đặc trưng cho đối tượng nhỏ]
+    N --> S2[Đặc trưng cho đối tượng vừa]
+    N --> S3[Đặc trưng cho đối tượng lớn]
+    S1 --> H[Detection Head]
+    S2 --> H
+    S3 --> H
+    H --> C[Dự đoán lớp]
+    H --> L[Dự đoán bounding box]
+    C --> P[Lọc và NMS]
+    L --> P
+    P --> O[Hộp, nhãn và confidence]
 ```
 
 **Backbone** học đặc trưng ảnh; **Neck** kết hợp thông tin ở các tỉ lệ khác nhau để hỗ trợ nhận diện đối tượng lớn và nhỏ; **Detection Head** sinh các dự đoán vị trí và lớp. Sơ đồ trên là mô tả chức năng ở mức khái quát, không phải sơ đồ chi tiết từng lớp của YOLOv8n.
@@ -89,31 +103,64 @@ flowchart TD
 ### A. Quy trình suy luận Object Detection
 
 ```mermaid
-flowchart TD
-    A([Bắt đầu]) --> B{Nguồn dữ liệu?}
-    B -->|Ảnh| C[Đọc test.jpg / test1.jpg]
-    B -->|Webcam| D[Đọc từng frame từ camera]
-    C --> E[Nạp YOLOv8n pretrained]
-    D --> E
-    E --> F[Chạy dự đoán]
-    F --> G[Nhận lớp, tọa độ hộp và confidence]
-    G --> H[Vẽ bounding box và nhãn]
-    H --> I[Hiển thị bằng OpenCV]
-    I --> J{Còn ảnh / frame tiếp theo?}
-    J -->|Có| B
-    J -->|Không / thoát| K([Kết thúc])
+flowchart LR
+    START([Bắt đầu]) --> SOURCE{Chọn nguồn đầu vào}
+    SOURCE -->|Ảnh tĩnh| IMG[Đọc ảnh test.jpg hoặc test1.jpg]
+    SOURCE -->|Webcam| CAM{Mở camera thành công?}
+    CAM -->|Không| ERR[Kiểm tra camera và quyền truy cập]
+    ERR --> SOURCE
+    CAM -->|Có| FRAME[Đọc frame]
+    IMG --> VALID{Đọc ảnh thành công?}
+    VALID -->|Không| FILEERR[Kiểm tra tên và đường dẫn ảnh]
+    FILEERR --> SOURCE
+    VALID -->|Có| PRE[Chuẩn bị đầu vào]
+    FRAME --> PRE
+    PRE --> MODEL[YOLOv8n suy luận]
+    MODEL --> CLASS[Điểm và nhãn lớp]
+    MODEL --> BOX[Tọa độ bounding box]
+    CLASS --> POST[Lọc confidence và NMS]
+    BOX --> POST
+    POST --> DRAW[Vẽ hộp, nhãn và độ tin cậy]
+    DRAW --> SHOW[Hiển thị kết quả]
+    SHOW --> MODE{Đang dùng webcam?}
+    MODE -->|Không| END([Kết thúc])
+    MODE -->|Có| QUIT{Người dùng thoát?}
+    QUIT -->|Có| END
+    QUIT -->|Không| FRAME
 ```
 
 ### B. Quy trình chuẩn bị và hoàn thiện bài presentation
 
 ```mermaid
-flowchart TD
-    A[Xác định mục tiêu và phạm vi] --> B[Thu thập lý thuyết CNN / YOLOv8]
-    B --> C[Chuẩn bị mã nguồn và ảnh mẫu]
-    C --> D[Chạy demo, ghi nhận quan sát]
-    D --> E[Soạn slide và README]
-    E --> F[Kiểm tra lệnh, đường dẫn, sơ đồ]
-    F --> G[Commit và cập nhật GitHub]
+flowchart LR
+    A([Bắt đầu]) --> B[Xác định mục tiêu presentation]
+    B --> C{Phân chia công việc}
+    C --> T[Nhánh lý thuyết]
+    C --> D[Nhánh thực nghiệm]
+    C --> R[Nhánh tài liệu]
+    T --> T1[CNN và trích xuất đặc trưng]
+    T --> T2[YOLOv8: Backbone, Neck, Head]
+    T --> T3[Bounding box, IoU và NMS]
+    D --> D1[Kiểm tra main.py và trọng số]
+    D --> D2[Thử ảnh giao thông và nhiều chó]
+    D --> D3[Thử webcam nếu có]
+    R --> R1[Chuẩn bị slide]
+    R --> R2[Soạn README và sơ đồ]
+    R --> R3[Kiểm tra tài liệu tham khảo]
+    T1 --> REVIEW[Tổng hợp và đối chiếu]
+    T2 --> REVIEW
+    T3 --> REVIEW
+    D1 --> REVIEW
+    D2 --> REVIEW
+    D3 --> REVIEW
+    R1 --> REVIEW
+    R2 --> REVIEW
+    R3 --> REVIEW
+    REVIEW --> CHECK{Đã kiểm tra nội dung, ảnh và lệnh chạy?}
+    CHECK -->|Chưa| FIX[Chỉnh sửa phần chưa đạt]
+    FIX --> REVIEW
+    CHECK -->|Rồi| COMMIT[Commit lên GitHub]
+    COMMIT --> END([Hoàn tất])
 ```
 
 ## 📁 Cấu trúc repository
