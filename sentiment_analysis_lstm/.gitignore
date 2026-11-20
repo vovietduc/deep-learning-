@@ -1,0 +1,32 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+!.env.example
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dataset: keep only placeholders
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Model artifacts
+models/*
+!models/.gitkeep
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# TensorBoard event logs
+runs/**/events.out.tfevents*
+runs/**/plugins/
+!runs/**/.gitkeep
