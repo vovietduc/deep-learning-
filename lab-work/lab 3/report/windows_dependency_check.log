@@ -1,0 +1,46 @@
+Using Python 3.14.6 environment at: /tmp/practice3_env
+Resolved 59 packages in 11ms
+Would download 21 packages
+Would uninstall 20 packages
+Would install 21 packages
+ - aiohttp==3.14.5
+ + aiohttp==3.14.5
+ - charset-normalizer==3.5.2
+ + charset-normalizer==3.5.2
+ + colorama==0.4.6
+ - filelock==4.2.4
+ + filelock==4.2.9
+ - frozenlist==1.8.0
+ + frozenlist==1.8.0
+ - hf-xet==1.8.0
+ + hf-xet==1.8.0
+ - markupsafe==3.0.3
+ + markupsafe==3.0.4
+ - multidict==7.2.1
+ + multidict==7.2.1
+ - numpy==2.5.4
+ + numpy==2.5.4
+ - pandas==3.1.1
+ + pandas==3.1.1
+ - propcache==0.5.4
+ + propcache==0.5.4
+ - psutil==7.2.2
+ + psutil==7.2.2
+ - pyarrow==26.0.1
+ + pyarrow==26.0.1
+ - pyyaml==6.0.3
+ + pyyaml==6.0.3
+ - regex==2026.11.7
+ + regex==2026.11.7
+ - safetensors==0.8.0
+ + safetensors==0.8.0
+ - setuptools==78.1.0
+ + setuptools==84.2.1
+ - tokenizers==0.23.3
+ + tokenizers==0.23.3
+ - torch==2.15.0+cpu
+ + torch==2.15.0
+ - xxhash==4.0.2
+ + xxhash==4.0.2
+ - yarl==1.25.1
+ + yarl==1.25.1

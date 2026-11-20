@@ -1,0 +1,93 @@
+{
+  "model": "distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+  "results": [
+    {
+      "text": "I really enjoyed this movie. The acting was excellent!",
+      "tokens": [
+        "[CLS]",
+        "i",
+        "really",
+        "enjoyed",
+        "this",
+        "movie",
+        ".",
+        "the",
+        "acting",
+        "was",
+        "excellent",
+        "!",
+        "[SEP]"
+      ],
+      "input_ids": [
+        101,
+        1045,
+        2428,
+        5632,
+        2023,
+        3185,
+        1012,
+        1996,
+        3772,
+        2001,
+        6581,
+        999,
+        102
+      ],
+      "attention_mask": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "label": "POSITIVE",
+      "score": 0.9998719692230225
+    },
+    {
+      "text": "This movie was boring and disappointing.",
+      "tokens": [
+        "[CLS]",
+        "this",
+        "movie",
+        "was",
+        "boring",
+        "and",
+        "disappointing",
+        ".",
+        "[SEP]"
+      ],
+      "input_ids": [
+        101,
+        2023,
+        3185,
+        2001,
+        11771,
+        1998,
+        15640,
+        1012,
+        102
+      ],
+      "attention_mask": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "label": "NEGATIVE",
+      "score": 0.9997838139533997
+    }
+  ]
+}

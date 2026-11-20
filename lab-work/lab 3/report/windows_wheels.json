@@ -1,0 +1,30 @@
+{
+  "torch": {
+    "version": "2.15.0",
+    "windows_cp314_wheels": [
+      "torch-2.15.0-cp314-cp314t-win_amd64.whl",
+      "torch-2.15.0-cp314-cp314-win_amd64.whl"
+    ]
+  },
+  "tokenizers": {
+    "version": "0.23.3",
+    "windows_cp314_wheels": [
+      "tokenizers-0.23.3-cp310-abi3-win_amd64.whl",
+      "tokenizers-0.23.3-cp314-cp314t-win_amd64.whl"
+    ]
+  },
+  "numpy": {
+    "version": "2.5.4",
+    "windows_cp314_wheels": [
+      "numpy-2.5.4-cp314-cp314t-win_amd64.whl",
+      "numpy-2.5.4-cp314-cp314-win_amd64.whl"
+    ]
+  },
+  "pyarrow": {
+    "version": "26.0.1",
+    "windows_cp314_wheels": [
+      "pyarrow-26.0.1-cp314-cp314t-win_amd64.whl",
+      "pyarrow-26.0.1-cp314-cp314-win_amd64.whl"
+    ]
+  }
+}

@@ -1,0 +1,2 @@
+PASS: metrics recomputed, 200 saved-model predictions match, no cross-split exact text duplicates.
+POSITIVE score=0.5661

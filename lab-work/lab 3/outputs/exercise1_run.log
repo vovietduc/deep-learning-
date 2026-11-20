@@ -1,0 +1,6 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+POSITIVE (0.9999): I really enjoyed this movie. The acting was excellent!
+Tokens: ['[CLS]', 'i', 'really', 'enjoyed', 'this', 'movie', '.', 'the', 'acting', 'was', 'excellent', '!', '[SEP]']
+NEGATIVE (0.9998): This movie was boring and disappointing.
+Tokens: ['[CLS]', 'this', 'movie', 'was', 'boring', 'and', 'disappointing', '.', '[SEP]']
+Saved: outputs/exercise1/results.json

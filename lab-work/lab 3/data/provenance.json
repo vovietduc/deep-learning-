@@ -1,0 +1,25 @@
+{
+  "source": "cornell-movie-review-data/rotten_tomatoes",
+  "seed": 42,
+  "selection": "shuffle(seed) then select; original train/validation/test splits retained",
+  "splits": {
+    "train": {
+      "size": 1000,
+      "negative": 512,
+      "positive": 488,
+      "fingerprint": "da9361762bbab089"
+    },
+    "validation": {
+      "size": 200,
+      "negative": 107,
+      "positive": 93,
+      "fingerprint": "6a5f0c1c0d8c6b26"
+    },
+    "test": {
+      "size": 200,
+      "negative": 107,
+      "positive": 93,
+      "fingerprint": "aa2cc476838ae980"
+    }
+  }
+}

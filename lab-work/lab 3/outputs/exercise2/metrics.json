@@ -1,0 +1,70 @@
+{
+  "model": "prajjwal1/bert-tiny",
+  "smoke_test": false,
+  "seed": 42,
+  "python": "3.14.6",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "versions": {
+    "torch": "2.15.0+cpu",
+    "transformers": "5.22.2",
+    "datasets": "5.1.0"
+  },
+  "device": "cpu",
+  "sizes": {
+    "train": 1000,
+    "validation": 200,
+    "test": 200
+  },
+  "parameters": 4386178,
+  "hyperparameters": {
+    "epochs": 5,
+    "batch_size": 16,
+    "learning_rate": 5e-05,
+    "max_length": 128,
+    "model": "prajjwal1/bert-tiny",
+    "tokenizer": "google-bert/bert-base-uncased",
+    "output_dir": "/workspace/scratch/9f7dfb36f6d8/Practice3_HuggingFace/outputs/exercise2",
+    "cpu": true,
+    "smoke": false
+  },
+  "training": {
+    "train_runtime": 18.979,
+    "train_samples_per_second": 263.449,
+    "train_steps_per_second": 16.597,
+    "total_flos": 613466578080.0,
+    "train_loss": 0.6519559269859677,
+    "epoch": 5.0
+  },
+  "validation": {
+    "eval_loss": 0.6542373895645142,
+    "eval_accuracy": 0.62,
+    "eval_precision": 0.6075949367088608,
+    "eval_recall": 0.5161290322580645,
+    "eval_f1": 0.5581395348837209,
+    "eval_runtime": 0.0981,
+    "eval_samples_per_second": 2038.985,
+    "eval_steps_per_second": 132.534,
+    "epoch": 5.0
+  },
+  "test": {
+    "test_loss": 0.6556183099746704,
+    "test_accuracy": 0.63,
+    "test_precision": 0.6266666666666667,
+    "test_recall": 0.5053763440860215,
+    "test_f1": 0.5595238095238095,
+    "test_runtime": 0.1235,
+    "test_samples_per_second": 1619.535,
+    "test_steps_per_second": 105.27
+  },
+  "confusion_matrix": [
+    [
+      79,
+      28
+    ],
+    [
+      46,
+      47
+    ]
+  ],
+  "elapsed_seconds": 19.447592875999817
+}

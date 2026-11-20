@@ -1,0 +1,58 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] BertForSequenceClassification LOAD REPORT from: prajjwal1/bert-tiny
+Key                                        | Status     | 
+-------------------------------------------+------------+-
+cls.predictions.transform.dense.weight     | UNEXPECTED | 
+cls.seq_relationship.weight                | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED | 
+cls.predictions.transform.dense.bias       | UNEXPECTED | 
+cls.predictions.bias                       | UNEXPECTED | 
+cls.predictions.decoder.weight             | UNEXPECTED | 
+cls.seq_relationship.bias                  | UNEXPECTED | 
+cls.predictions.decoder.bias               | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | 
+classifier.bias                            | MISSING    | 
+classifier.weight                          | MISSING    | 
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+{'loss': '0.6902', 'grad_norm': '1.253', 'learning_rate': '1.406e-05', 'epoch': '0.1587'}
+{'loss': '0.6925', 'grad_norm': '1.139', 'learning_rate': '2.969e-05', 'epoch': '0.3175'}
+{'loss': '0.6861', 'grad_norm': '1.553', 'learning_rate': '4.531e-05', 'epoch': '0.4762'}
+{'loss': '0.6782', 'grad_norm': '1.354', 'learning_rate': '4.876e-05', 'epoch': '0.6349'}
+{'loss': '0.6925', 'grad_norm': '1.395', 'learning_rate': '4.7e-05', 'epoch': '0.7937'}
+{'loss': '0.6898', 'grad_norm': '3.327', 'learning_rate': '4.523e-05', 'epoch': '0.9524'}
+{'eval_loss': '0.6764', 'eval_accuracy': '0.605', 'eval_precision': '0.6029', 'eval_recall': '0.4409', 'eval_f1': '0.5093', 'eval_runtime': '0.1495', 'eval_samples_per_second': '1338', 'eval_steps_per_second': '86.96', 'epoch': '1'}
+{'loss': '0.6774', 'grad_norm': '1.499', 'learning_rate': '4.346e-05', 'epoch': '1.111'}
+{'loss': '0.6717', 'grad_norm': '1.678', 'learning_rate': '4.17e-05', 'epoch': '1.27'}
+{'loss': '0.6731', 'grad_norm': '1.4', 'learning_rate': '3.993e-05', 'epoch': '1.429'}
+{'loss': '0.6653', 'grad_norm': '1.556', 'learning_rate': '3.816e-05', 'epoch': '1.587'}
+{'loss': '0.6732', 'grad_norm': '1.348', 'learning_rate': '3.64e-05', 'epoch': '1.746'}
+{'loss': '0.6722', 'grad_norm': '5.452', 'learning_rate': '3.463e-05', 'epoch': '1.905'}
+{'eval_loss': '0.6697', 'eval_accuracy': '0.61', 'eval_precision': '0.6471', 'eval_recall': '0.3548', 'eval_f1': '0.4583', 'eval_runtime': '0.1326', 'eval_samples_per_second': '1508', 'eval_steps_per_second': '98.01', 'epoch': '2'}
+{'loss': '0.6507', 'grad_norm': '2.38', 'learning_rate': '3.286e-05', 'epoch': '2.063'}
+{'loss': '0.6683', 'grad_norm': '1.906', 'learning_rate': '3.11e-05', 'epoch': '2.222'}
+{'loss': '0.6395', 'grad_norm': '4.475', 'learning_rate': '2.933e-05', 'epoch': '2.381'}
+{'loss': '0.6529', 'grad_norm': '2.826', 'learning_rate': '2.756e-05', 'epoch': '2.54'}
+{'loss': '0.6541', 'grad_norm': '1.82', 'learning_rate': '2.58e-05', 'epoch': '2.698'}
+{'loss': '0.6558', 'grad_norm': '5.11', 'learning_rate': '2.403e-05', 'epoch': '2.857'}
+{'eval_loss': '0.6609', 'eval_accuracy': '0.635', 'eval_precision': '0.6389', 'eval_recall': '0.4946', 'eval_f1': '0.5576', 'eval_runtime': '0.1383', 'eval_samples_per_second': '1446', 'eval_steps_per_second': '93.98', 'epoch': '3'}
+{'loss': '0.6358', 'grad_norm': '3.098', 'learning_rate': '2.226e-05', 'epoch': '3.016'}
+{'loss': '0.6274', 'grad_norm': '1.872', 'learning_rate': '2.049e-05', 'epoch': '3.175'}
+{'loss': '0.6395', 'grad_norm': '2.319', 'learning_rate': '1.873e-05', 'epoch': '3.333'}
+{'loss': '0.6367', 'grad_norm': '1.545', 'learning_rate': '1.696e-05', 'epoch': '3.492'}
+{'loss': '0.6397', 'grad_norm': '2.285', 'learning_rate': '1.519e-05', 'epoch': '3.651'}
+{'loss': '0.6151', 'grad_norm': '3.907', 'learning_rate': '1.343e-05', 'epoch': '3.81'}
+{'loss': '0.6282', 'grad_norm': '3.335', 'learning_rate': '1.166e-05', 'epoch': '3.968'}
+{'eval_loss': '0.6542', 'eval_accuracy': '0.62', 'eval_precision': '0.6076', 'eval_recall': '0.5161', 'eval_f1': '0.5581', 'eval_runtime': '0.1184', 'eval_samples_per_second': '1690', 'eval_steps_per_second': '109.8', 'epoch': '4'}
+{'loss': '0.6159', 'grad_norm': '3.503', 'learning_rate': '9.894e-06', 'epoch': '4.127'}
+{'loss': '0.6151', 'grad_norm': '2.691', 'learning_rate': '8.127e-06', 'epoch': '4.286'}
+{'loss': '0.6239', 'grad_norm': '2.61', 'learning_rate': '6.36e-06', 'epoch': '4.444'}
+{'loss': '0.5999', 'grad_norm': '3.153', 'learning_rate': '4.594e-06', 'epoch': '4.603'}
+{'loss': '0.6194', 'grad_norm': '1.618', 'learning_rate': '2.827e-06', 'epoch': '4.762'}
+{'loss': '0.6348', 'grad_norm': '2.416', 'learning_rate': '1.06e-06', 'epoch': '4.921'}
+{'eval_loss': '0.652', 'eval_accuracy': '0.62', 'eval_precision': '0.6104', 'eval_recall': '0.5054', 'eval_f1': '0.5529', 'eval_runtime': '0.135', 'eval_samples_per_second': '1482', 'eval_steps_per_second': '96.3', 'epoch': '5'}
+{'train_runtime': '18.98', 'train_samples_per_second': '263.4', 'train_steps_per_second': '16.6', 'train_loss': '0.652', 'epoch': '5'}
+TEST RESULTS: {'test_loss': 0.6556183099746704, 'test_accuracy': 0.63, 'test_precision': 0.6266666666666667, 'test_recall': 0.5053763440860215, 'test_f1': 0.5595238095238095, 'test_runtime': 0.1235, 'test_samples_per_second': 1619.535, 'test_steps_per_second': 105.27}
+Confusion matrix (rows=true, columns=predicted; 0=negative, 1=positive): [[79, 28], [46, 47]]
+Saved model and results to /workspace/scratch/9f7dfb36f6d8/Practice3_HuggingFace/outputs/exercise2
