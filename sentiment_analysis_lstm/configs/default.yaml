@@ -1,0 +1,49 @@
+# Shared default configuration for IMDb binary sentiment classification.
+project:
+  name: sentiment_analysis_lstm
+  task: binary_sentiment_classification
+
+data:
+  dataset_url: "https://ai.stanford.edu/~amaas/data/sentiment/"
+  root_dir: "data"
+  train_split: "train"
+  test_split: "test"
+  validation_size: 0.1
+  max_vocab_size: 30000
+  max_sequence_length: 300
+  lowercase: true
+
+model:
+  architecture: "lstm"
+  embedding_dim: 100
+  hidden_dim: 128
+  num_layers: 1
+  dropout: 0.3
+  num_classes: 2
+  padding_idx: 0
+  bidirectional: false
+
+training:
+  seed: 42
+  batch_size: 64
+  epochs: 10
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  optimizer: "adam"
+  early_stopping_patience: 3
+  gradient_clip: 1.0
+
+runtime:
+  device: "auto"
+  num_workers: 0
+  deterministic: true
+
+paths:
+  checkpoint_dir: "models"
+  report_dir: "reports"
+  log_dir: "runs/lstm"
+
+tensorboard:
+  enabled: true
+  log_dir: "runs/lstm"
+  run_name: "lstm-baseline"
