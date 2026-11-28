@@ -17,7 +17,7 @@ from src.data.padding import effective_length, pad_or_truncate
 from src.data.tokenizer import Tokenizer
 from src.data.vocabulary import PAD_IDX, PAD_TOKEN, UNK_IDX, UNK_TOKEN, Vocabulary
 
-_DEFAULT_TOKENIZER = Tokenizer(lowercase=True, keep_punctuation=True)
+_DEFAULT_TOKENIZER = Tokenizer(lowercase=False, keep_punctuation=True)
 
 
 def clean_text(text: str, lowercase: bool = True) -> str:
@@ -26,7 +26,7 @@ def clean_text(text: str, lowercase: bool = True) -> str:
 
 
 def tokenize(text: str) -> List[str]:
-    """Tokenize with the same rules used by the Dataset and prediction service."""
+    """Tokenize already-normalized text without changing its configured casing."""
     return _DEFAULT_TOKENIZER.tokenize(text)
 
 
