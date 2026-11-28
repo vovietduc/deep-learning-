@@ -6,7 +6,7 @@ Tài liệu này phân biệt rõ: (1) code đã có trong GitHub, (2) code nh�
 
 ## 1. Branch tích hợp
 
-Branch: feature/duc-integration-standardized  
+Branch: feature/duc-integration-clean  
 Base: feature/duc-integration-core
 
 Các thay đổi của nhóm trưởng đã commit:
