@@ -13,6 +13,9 @@ from collections import Counter
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Union
 
+PAD_IDX = 0
+UNK_IDX = 1
+
 
 class Vocabulary:
     PAD_TOKEN = "<PAD>"
@@ -31,6 +34,30 @@ class Vocabulary:
         self.token_to_id: Dict[str, int] = {}
         self.id_to_token: Dict[int, str] = {}
         self._reset()
+
+    @property
+    def token_to_idx(self) -> Dict[str, int]:
+        """Compatibility alias for the data-pipeline vocabulary interface."""
+        return self.token_to_id
+
+    @property
+    def idx_to_token(self) -> Dict[int, str]:
+        """Compatibility alias for the data-pipeline vocabulary interface."""
+        return self.id_to_token
+
+    @property
+    def max_vocab_size(self) -> Optional[int]:
+        return self.max_size
+
+    @classmethod
+    def build_from_tokens(
+        cls,
+        tokenized_texts: Iterable[List[str]],
+        max_vocab_size: int = 30000,
+        min_freq: int = 2,
+    ) -> "Vocabulary":
+        """Compatibility factory; vocabulary is fitted only on supplied train tokens."""
+        return cls(min_freq=min_freq, max_size=max_vocab_size).build(tokenized_texts)
 
     # ------------------------------------------------------------------ build
     def _reset(self) -> None:
@@ -82,7 +109,7 @@ class Vocabulary:
         return out
 
     # ------------------------------------------------------------ save / load
-    def save(self, path: Union[str, Path]) -> None:
+    def save(self, path: Union[str, Path]) -> Path:
         """Lưu vocabulary ra JSON (token theo thứ tự ID)."""
         path = Path(path)
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -98,17 +125,25 @@ class Vocabulary:
             "tokens": tokens,
         }
         path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        return path
 
     @classmethod
     def load(cls, path: Union[str, Path]) -> "Vocabulary":
         data = json.loads(Path(path).read_text(encoding="utf-8"))
-        tokens = data["tokens"]
-        if tokens[cls.PAD_ID] != cls.PAD_TOKEN or tokens[cls.UNK_ID] != cls.UNK_TOKEN:
-            raise ValueError("Vocabulary file has unexpected special tokens")
-
-        vocab = cls(min_freq=data.get("min_freq", 1), max_size=data.get("max_size"))
-        vocab.token_to_id = {t: i for i, t in enumerate(tokens)}
-        vocab.id_to_token = {i: t for i, t in enumerate(tokens)}
+        vocab = cls(
+            min_freq=data.get("min_freq", 1),
+            max_size=data.get("max_size", data.get("max_vocab_size")),
+        )
+        if "tokens" in data:
+            tokens = data["tokens"]
+            if tokens[cls.PAD_ID] != cls.PAD_TOKEN or tokens[cls.UNK_ID] != cls.UNK_TOKEN:
+                raise ValueError("Vocabulary file has unexpected special tokens")
+            vocab.token_to_id = {token: index for index, token in enumerate(tokens)}
+        elif "token_to_idx" in data:
+            vocab.token_to_id = {str(token): int(index) for token, index in data["token_to_idx"].items()}
+        else:
+            raise ValueError("Vocabulary file must contain 'tokens' or 'token_to_idx'.")
+        vocab.id_to_token = {index: token for token, index in vocab.token_to_id.items()}
         return vocab
 
     # ------------------------------------------------------------------ misc
