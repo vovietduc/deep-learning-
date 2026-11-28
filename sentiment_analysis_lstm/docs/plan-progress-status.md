@@ -8,7 +8,7 @@
 
 | Thành viên | Module / phạm vi | Trạng thái hiện tại | Bằng chứng / việc còn lại |
 |---|---|---|---|
-| Võ Việt Đức – Nhóm trưởng | Config, seed/device, orchestration, TensorBoard helpers, GitHub integration | Đã triển khai trên feature/duc-integration-standardized; chờ chạy trên máy RTX 3050 | Commits cho config, seed, device, TensorBoard, runner, default.yaml, tests và docs; cần xác nhận bằng pytest + stage check trên máy nhóm trưởng |
+| Võ Việt Đức – Nhóm trưởng | Config, seed/device, orchestration, TensorBoard helpers, GitHub integration | Đã triển khai trên feature/duc-integration-clean; chờ chạy trên máy RTX 3050 | Commits cho config, seed, device, TensorBoard, runner, default.yaml, tests và docs; cần xác nhận bằng pytest + stage check trên máy nhóm trưởng |
 | Quốc Anh | Download, inspect, audit, EDA, data pipeline | Đã nhận ZIP và review; chưa đưa toàn bộ source vào branch chung | tests/test_data_pipeline.py: 5 passed với temporary shims cho config/seed; cần bàn giao/merge các module audit, download, inspect, EDA, reporting và scripts |
 | Duy Căn | Tokenizer, vocabulary, padding, dataset adapter | Source đã có trên main và được đưa vào branch tích hợp | dataset/tokenizer/vocabulary/padding và test_preprocessing.py; đã bổ sung compatibility aliases để kết nối data pipeline |
 | Thành Phát | LSTM, training loop, loss, checkpoint, TensorBoard logging | Chưa có bàn giao source để tích hợp trong branch này | Cần model/training smoke, checkpoint, history, TensorBoard event |
@@ -18,7 +18,7 @@
 
 ## 2. Tình trạng branch tích hợp
 
-Branch: feature/duc-integration-standardized (base: feature/duc-integration-core).
+Branch: feature/duc-integration-clean (base: feature/duc-integration-core).
 
 Đã có:
 - Shared ProjectConfig và load_config tương thích nested YAML.
