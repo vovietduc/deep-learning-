@@ -12,7 +12,7 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from src.data.inspect import LABEL_MAPPING
+LABEL_MAPPING = {"neg": 0, "pos": 1}
 from src.data.padding import effective_length, pad_or_truncate
 from src.data.tokenizer import Tokenizer
 from src.data.vocabulary import PAD_IDX, PAD_TOKEN, UNK_IDX, UNK_TOKEN, Vocabulary
