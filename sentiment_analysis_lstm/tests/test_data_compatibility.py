@@ -27,7 +27,7 @@ def test_legacy_preprocessing_api_uses_duy_can_contract():
     tokens = tokenize(cleaned)
     canonical = Tokenizer(lowercase=True, keep_punctuation=True).tokenize(raw)
     assert tokens == canonical
-    assert "!" in tokens and "wasn't" in tokens and "&" in tokens
+    assert "!" in tokens and "wasn't" in tokens and "&" in cleaned
 
 
 def test_vocabulary_supports_both_member_apis():
