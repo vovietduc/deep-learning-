@@ -1,0 +1,30 @@
+# Shared config for IMDb sentiment classification.
+data:
+  root_dir: data
+  max_vocab_size: 30000
+  max_sequence_length: 300
+  validation_size: 0.2
+  lowercase: true
+  min_freq: 2
+training:
+  seed: 42
+  batch_size: 64
+  epochs: 10
+  learning_rate: 0.001
+  weight_decay: 0.0
+model:
+  embedding_dim: 100
+  hidden_dim: 128
+  num_layers: 1
+  dropout: 0.3
+  bidirectional: false
+  pretrained_embeddings: false
+runtime:
+  device: auto
+  num_workers: 0
+  deterministic: true
+  amp: false
+paths:
+  report_dir: reports
+  checkpoint_dir: models
+  tensorboard_dir: runs
